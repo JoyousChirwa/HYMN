@@ -1,0 +1,7 @@
+<form action="{% url 'nyimbo:funsa' %}" method="POST">
+    <div class="input-group mt-2 mb-2">
+        {% csrf_token %}
+        <input class="form-control" type="search" name="funso" id="funso">
+        <button class="btn btn-info" type="submit">Search</button>
+    </div>
+</form>

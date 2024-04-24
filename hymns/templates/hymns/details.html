@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if hymn %}
+    <h2 class="mb-5 text-center">{{ hymn.header_id.header_text }}</h2>
+    
+    <ul class="list-group mb-5">
+        {# {% for title in hymn.title_set.all %} #}
+        <li class="list-group-item">
+            <h4>{{ hymn.hymn_number}}. {{ hymn.hymn_title }}</h4> {# <span class="badge badge-success float-right">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span> #}
+            <ol>
+                {% for stanza in hymn.stanza_set.all %}
+                <li><p class="lead">{{stanza.stanza_text}}</p></li>
+                {% endfor %}
+            </ol>
+        </li>
+        {# {% endfor %} #}
+    </ul>
+    {% elif hymn_s or sumu or nyimbo %}
+    <h2 class="mb-5 text-center">{{ hymn_s.hymns.header_text }}</h2>
+    <!-- English -->
+    <ul class="list-group mb-5">
+        {# {% for title in hymn_s.title_set.all %} #}
+        <li class="list-group-item">
+            <h4>{{ hymn_s.hymn_number}}. {{ hymn_s.hymn_title }}</h4>
+            <ol>
+                {% for stanza in hymn_s.stanza_set.all %}
+                <li><p class="lead">{{stanza.stanza_text}}</p></li>
+                {% endfor %}
+            </ol>
+        </li>
+        {# {% endfor %} #}
+    </ul>
+    <!-- Tumbuka -->
+    <h2 class="mb-5 text-center">{{ sumu.mutusumu.mutu_wa_sumu }}</h2>
+    
+    <ul class="list-group mb-5">
+        {# {% for zina in sumu.zina_set.all %} #}
+        <li class="list-group-item">
+            <h4>{{ sumu.nambala_ya_sumu}}. {{ sumu.zina_la_sumu }}</h4>
+            <ol>
+                {% for mizere in sumu.mizere_set.all %}
+                <li><p class="lead">{{mizere.mizere}}</p></li>
+                {% endfor %}
+            </ol>
+        </li>
+        {# {% endfor %} #}
+    </ul>
+    <!-- Chewa -->
+    <h2 class="mb-5 text-center">{{ nyimbo.hymns.header_text }}</h2>
+    
+    <ul class="list-group mb-5">
+        {# {% for dzina in nyimbo.dzina_set.all %} #}
+        <li class="list-group-item">
+            <h4>{{ nyimbo.nambara_ya_nyimbo}}. {{ nyimbo.dzina_la_nyimbo }}</h4> {# <span class="badge badge-success float-right">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span> #}
+            <ol>
+                {% for ndime in nyimbo.ndime_set.all %}
+                <li><p class="lead">{{ndime.ndime}}</p></li>
+                {% endfor %}
+            </ol>
+        </li>
+        {# {% endfor %} #}
+    </ul>
+    {% else %}
+    <div class="list-group">
+        <h4 class="list-group-item">No Result</h4>
+    </div>
+    {% endif %}
+    {% if error %}
+        <div class="alert alert-danger alert-dismissable">
+            <p class="alert-text">{{error}}</p>
+        </div>
+    {% endif %}
+{% endblock %}

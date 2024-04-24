@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block navlinks %}
+    <a href="{% url 'sumu:home' %}" class="nav-link nav-item">Tumbuka</a>
+    <a href="{% url 'hymns:home'%}" class="nav-link nav-item">English</a>
+{% endblock %}
+
+{% block content %}
+    {% include 'nyimbo/_funsa.html' %}
+    {% if vuto %}
+        <h3 class="mb-5 text-center">{{ vuto }}</h3>
+    {% else %}
+    <h2 class="mb-5 text-center">{{ nyimbo.mutu_nyimbo_id.mutu_wa_nyimbo }}</h2>
+
+    <ul class="list-group mb-5">
+        <li class="list-group-item">
+            <h4>{{ nyimbo.nambara_ya_nyimbo}}. {{ nyimbo.dzina_la_nyimbo }}</h4>
+            <ol>
+                {% for ndime in nyimbo.ndime_set.all %}
+                <li><p class="lead">{{ndime.ndime}}</p></li>
+                {% endfor %}
+            </ol>
+        </li>
+    </ul>
+    {% endif %}
+{% endblock %}
