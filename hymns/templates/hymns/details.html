@@ -10,7 +10,7 @@
             <h4>{{ hymn.hymn_number}}. {{ hymn.hymn_title }}</h4> {# <span class="badge badge-success float-right">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span> #}
             <ol>
                 {% for stanza in hymn.stanza_set.all %}
-                <li><p class="lead">{{stanza.stanza_text}}</p></li>
+                <li><p class="lead m-5 p-5">{{stanza.stanza_text}}</p></li>
                 {% endfor %}
             </ol>
         </li>

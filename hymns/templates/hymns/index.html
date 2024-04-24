@@ -17,7 +17,7 @@
             {# <span class="badge badge-success float-right">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span> #}
             <ol>
                 {% for stanza in title.stanza_set.all %}
-                <li><p class="lead">{{stanza.stanza_text}}</p></li>
+                <li><p class="lead mr-5 pr-5" style="width: 200px;">{{stanza.stanza_text}}</p></li>
                 {% endfor %}
             </ol>
         </li>
