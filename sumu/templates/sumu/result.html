@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block navlinks %}
+    <a href="{% url 'nyimbo:home' %}" class="nav-item nav-link">Chewa</a>
+    <a href="{% url 'hymns:home' %}" class="nav-item nav-link">English</a>
+{% endblock %}
+
+{% block content %}
+    {% include 'sumu/_fumba.html' %}
+    {% if suzgo %}
+        <h3 class="mb-5 text-center">{{ suzgo }}</h3>
+    {% else %}
+    <h2 class="mb-5 text-center">{{ sumu.mutu_sumu_id.mutu_wa_sumu }}</h2>
+
+    <ul class="list-group mb-5">
+        <li class="list-group-item">
+            <h4>{{ sumu.nambala_ya_sumu}}. {{ sumu.zina_la_sumu }}</h4>
+            <ol>
+                {% for mizere in sumu.mizere_set.all %}
+                <li><p class="lead">{{mizere.mizere}}</p></li>
+                {% endfor %}
+            </ol>
+        </li>
+    </ul>
+    {% endif %}
+{% endblock %}

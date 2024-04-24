@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block navlinks %}
+    <a href="{% url 'hymns:home' %}" class="nav-link active">English Hymns</a>
+    <a href="{% url 'sumu:home' %}" class="nav-link active">Tumbuka Hymns</a>
+    <a href="{% url 'nyimbo:home' %}" class="nav-link active">Chichewa Hymns</a>
+{% endblock %}
+
+{% block content %}
+    <figure class="text-center  pt-1">
+        <img src="{% static 'images/ic_icon_coner.png' %}" class="img-fluid" />
+        <figcaption class="lead">
+            <p>HYMNS FOR MALAWI IN THREE LANGUAGES</p>
+        </figcaption>
+    </figure>
+
+    <div class="row d-flex">
+        <div class="col-4 d-flex text-center">
+            <a href="{% url 'hymns:home' %}" class="btn btn-primary btn-lg mt-2 mb-3 ml-auto mr-auto">ENGLISH HYMN</a>
+        </div>
+        <div class="col-4 d-flex text-center">
+            <a href="{% url 'sumu:home' %}" class="btn btn-success btn-lg mt-2 mb-3 ml-auto mr-auto">SUMU ZA UKHRISTU</a>
+        </div>
+        <div class="col-4 d-flex text-center">
+            <a href="{% url 'nyimbo:home' %}" class="btn btn-info btn-lg mt-2 mb-3 ml-auto mr-auto">NYIMBO</a>
+        </div>
+    </div>
+{% endblock %}

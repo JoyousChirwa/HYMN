@@ -1,0 +1,13 @@
+from django.urls import path
+
+from . import views
+
+app_name = 'sumu'
+
+urlpatterns = [
+    path('', views.index, name='home'),
+    path('fumba/', views.fumba, name='fumba'),
+    # path('search/', views.search, name='search'),
+    # path('sumu/', views.sumu, name='sumu'),
+    # path('nyimbo/', views.nyimbo, name='nyimbo'),
+]
